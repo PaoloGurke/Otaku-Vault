@@ -1,0 +1,179 @@
+
+@import url(https://fonts.googleapis.com/css?family=Quattrocento+Sans);
+
+@mixin position-center($text-align: center) {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	text-align: $text-align;
+}
+
+.loading {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.45); /* cinematic dim */
+	z-index: 9999;
+}
+
+.loading-text {
+	@include position-center;
+	width: 100%;
+	height: 140px;
+font-size: 20px;   // ⭐ Make text bigger here
+	line-height: 140px;
+	span {
+		display: inline-block;
+		margin: 0 8px;
+		color: #fff;
+    font-family: 'Quattrocento Sans', sans-serif;
+		@for $i from 0 through 6 {
+			&:nth-child(#{$i + 1}) {
+				filter: blur(0px);
+				animation: blur-text 1.5s (#{$i/5})+s infinite linear alternate;
+			}
+		}
+	}
+}
+
+@keyframes blur-text {
+	0% {filter: blur(0px);}
+	100% {filter: blur(4px);}
+}
+
+
+
+
+
+
+
+//top part loader
+
+html {
+  height: 100%;
+}
+
+body {
+  background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%);
+}
+
+
+
+.loader {
+  animation: loaderPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes loaderPulse {
+  0% {
+    opacity: 0.2;
+    transform: scale(0.95) rotateX(20deg);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1) rotateX(35deg);
+  }
+
+  100% {
+    opacity: 0.2;
+    transform: scale(0.95) rotateX(20deg);
+  }
+}
+
+.loader {
+  position: absolute;
+  top: 44%;
+  left: 46.5%;
+
+  width: 90px;   /* ⭐ Increase size here */
+  height: 90px;
+
+  border-radius: 50%;
+  perspective: 800px;
+
+  transform: translate(-50%, -50%);
+}
+
+.inner {
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;  
+}
+
+.inner.one {
+  left: 0%;
+  top: 0%;
+  animation: rotate-one 1s linear infinite;
+  border-bottom: 3px solid #EFEFFA;
+}
+
+.inner.two {
+  right: 0%;
+  top: 0%;
+  animation: rotate-two 1s linear infinite;
+  border-right: 3px solid #EFEFFA;
+}
+
+.inner.three {
+  right: 0%;
+  bottom: 0%;
+  animation: rotate-three 1s linear infinite;
+  border-top: 3px solid #EFEFFA;
+}
+
+@keyframes rotate-one {
+  0% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+  }
+}
+
+@keyframes rotate-two {
+  0% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+  }
+}
+
+@keyframes rotate-three {
+  0% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+  }
+}
+
+
+
+
+
+
+button:hover {
+  box-shadow:
+    0 0 10px rgba(255,255,255,0.4),
+    0 0 30px rgba(100,150,255,0.4);
+}
+
+
+
+
+
+
+@font-face {
+  font-family: "TravelerFont";
+  src: url("/fonts/Genshinfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
