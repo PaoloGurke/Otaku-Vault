@@ -177,3 +177,36 @@ button:hover {
   font-weight: normal;
   font-style: normal;
 }
+
+
+
+
+
+
+
+
+
+.asset-loading-box {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 14px 22px;
+
+  color: white;
+  font-size: 14px;
+  font-family: "Segoe UI", sans-serif;
+
+  background: rgba(120,120,120,0.25);
+
+  border: 1px solid rgba(255,255,255,0.35);
+
+  border-radius: 16px;
+
+  backdrop-filter: blur(6px);
+
+  box-shadow: 0 0 12px rgba(197, 190, 190, 0.25);
+
+  text-align: center;
+}

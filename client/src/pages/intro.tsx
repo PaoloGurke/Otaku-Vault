@@ -15,6 +15,11 @@ export default function Intro() {
   const introVideoRef = useRef<HTMLVideoElement | null>(null);
 
   return (
+
+
+
+
+    
     <div className="fixed inset-0 bg-black overflow-hidden">
 
       {/* 🎬 VIDEO */}
@@ -74,6 +79,12 @@ export default function Intro() {
         <div className="absolute inset-0 bg-black" />
       )}
 
+
+
+
+
+
+
       {/* ⭐ WHITE FLASH CINEMATIC */}
       {showWhiteFade && (
         <div className="
@@ -85,6 +96,9 @@ export default function Intro() {
       {/* ⭐ PLAY BUTTON */}
       {!canPlayIntro && (
         <div className="absolute inset-0 flex items-center justify-center bg-black/70 backdrop-blur-md z-50">
+
+
+
 
           <img
             src="/playbutton.png"
@@ -101,6 +115,14 @@ export default function Intro() {
 
             }}
           />
+
+          {/* Loading message */}
+      <div className="asset-loading-box">
+        Preparing your Otaku Vault experience...
+        <br />
+        Please wait while cinematic assets load.
+      </div>
+
 
         </div>
       )}
