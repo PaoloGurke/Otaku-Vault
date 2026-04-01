@@ -187,26 +187,93 @@ button:hover {
 
 
 .asset-loading-box {
-  position: fixed;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-
-  padding: 14px 22px;
-
+  padding: 16px 24px;
   color: white;
   font-size: 14px;
   font-family: "Segoe UI", sans-serif;
 
   background: rgba(120,120,120,0.25);
-
   border: 1px solid rgba(255,255,255,0.35);
-
   border-radius: 16px;
 
   backdrop-filter: blur(6px);
-
-  box-shadow: 0 0 12px rgba(197, 190, 190, 0.25);
+  box-shadow: 0 0 12px rgba(0,0,0,0.25);
 
   text-align: center;
+
+}
+
+
+
+.skip-btn-container {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 2.5rem;
+  z-index: 100;
+  display: flex;
+  flex-direction: column; // Keeps Sayu ABOVE the text
+  align-items: center;
+  cursor: pointer;
+  gap: 10px; // Space between Sayu and the "SKIP" label
+  transition: all 0.3s ease;
+
+  .sayu-wrapper {
+    position: relative;
+    width: 50px;  /* Shrinked size as requested */
+    height: 50px; 
+    
+    .sayu-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .static-img {
+      opacity: 0.8; // Slightly dimmed when not hovering
+      z-index: 2;
+    }
+
+    .hover-gif {
+      opacity: 0; // Hidden by default
+      z-index: 1;
+    }
+  }
+
+  // Cooler, Cinematic Font
+  .skip-label {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.3em; // Spaced out for a "Pro" look
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+  }
+
+ // THE ACTION RULES
+  &:hover {
+    transform: translateY(-3px); 
+    
+    .static-img {
+      opacity: 0;
+      z-index: 1; // Move the PNG to the back
+    }
+    
+    .hover-gif {
+      opacity: 1;
+      z-index: 2; // Move the GIF to the front
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.4));
+    }
+
+    .skip-label {
+      color: #ffffff;
+      letter-spacing: 0.4em; 
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    }
+  }
 }
